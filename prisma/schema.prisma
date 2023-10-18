@@ -15,25 +15,19 @@ model Category {
   name     String
   slug     String
   imageUrl String
-  product  Product[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  products Product[]
 }
 
 model Product {
-  id              String    @id @default(uuid())
-  name            String
-  slug            String
-  description     String
-  basePrice       Decimal   @db.Decimal(8, 2)
-  imageUrl        String
-  Category        Category? @relation(fields: [categoryId], references: [id])
-  categoryId      String?
-  discountPercent Int       @default(0)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                 String   @id @default(uuid())
+  name               String
+  slug               String
+  description        String
+  basePrice          Decimal  @db.Decimal(8, 2)
+  imageUrls          String[]
+  categoryId         String
+  category           Category @relation(fields: [categoryId], references: [id])
+  discountPercentage Int      @default(0)
 }
 
 model Account {
@@ -52,7 +46,7 @@ model Account {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([provider, providerAccountId])
+  @@unique([provider, providerAccountId])c
 }
 
 model Session {
