@@ -1,13 +1,15 @@
 "use client";
+import { Product } from "@prisma/client";
 import Image from "next/image";
 import { useState } from "react";
 
 interface ProductImagesProps {
-  name: string;
-  imageUrls: string[];
+  product: Pick<Product, "imageUrls" | "name">;
 }
 
-const ProductImages = ({ imageUrls, name }: ProductImagesProps) => {
+const ProductImages = ({
+  product: { imageUrls, name },
+}: ProductImagesProps) => {
   const [currentImage, setCurrentImage] = useState(imageUrls[0]);
 
   const handleImageClick = (imageUrl: string) => {
