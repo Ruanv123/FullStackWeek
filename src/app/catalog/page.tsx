@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { ShapesIcon } from "lucide-react";
-import { CategoriesItem } from "../(home)/components/CategoriesItem";
+import { CategoriesItem } from "../(home)/components/category-item";
 import { db } from "@/lib/prisma";
 import CategoryItem from "./components/category-item";
 
