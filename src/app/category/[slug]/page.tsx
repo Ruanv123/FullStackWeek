@@ -5,7 +5,13 @@ import { computedProductTotalPrice } from "@/helpers/product";
 import { db } from "@/lib/prisma";
 import { ShapesIcon } from "lucide-react";
 
-const CategoryProducts = async ({ params }: any) => {
+interface CategoryDetailsProducts {
+  params: {
+    slug: string;
+  };
+}
+
+const CategoryProducts = async ({ params }: CategoryDetailsProducts) => {
   const category = await db.category.findFirst({
     where: {
       slug: params.slug,

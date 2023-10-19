@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Categories from "./components/Categories";
 import { db } from "@/lib/prisma";
-import ProductList from "./components/ProductList";
+import ProductList from "./components/product-list";
 import SectionTitle from "./components/section-title";
 import PromoBanner from "./components/promo-banner";
 
