@@ -9,15 +9,16 @@ interface CardItemProps {
 }
 
 const CartItem = ({ product }: CardItemProps) => {
-  const { decreaseProductQuantity } = useContext(CartContext);
+  const { decreaseProductQuantity, increaseProductQuantity } =
+    useContext(CartContext);
 
   const handleDecreaseProductQuantityClick = () => {
     decreaseProductQuantity(product.id);
   };
 
   const handleIncreaseProductQuantityClick = () => {
-    
-  }
+    increaseProductQuantity(product.id);
+  };
 
   return (
     <div className="flex items-center justify-between">
