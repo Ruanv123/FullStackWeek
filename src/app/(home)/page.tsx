@@ -1,9 +1,8 @@
-import Image from "next/image";
-import Categories from "./components/Categories";
+import ProductList from "@/components/ui/product-list";
 import { db } from "@/lib/prisma";
 import SectionTitle from "../../components/ui/section-title";
+import Categories from "./components/Categories";
 import PromoBanner from "./components/promo-banner";
-import ProductList from "@/components/ui/product-list";
 
 export default async function Home() {
   const deals = await db.product.findMany({

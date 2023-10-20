@@ -21,6 +21,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import { Separator } from "./separator";
 import Link from "next/link";
+import Cart from "./cart";
 
 const Header = () => {
   const { status, data } = useSession();
@@ -33,6 +34,7 @@ const Header = () => {
   };
   return (
     <Card className="flex items-center justify-between p-[1.875rem]">
+      {/* Sidebar Menu */}
       <Sheet>
         <SheetTrigger asChild>
           <Button size="icon" variant="outline">
@@ -116,14 +118,24 @@ const Header = () => {
         </SheetContent>
       </Sheet>
 
+      {/* Logo */}
       <h1 className="text-lg font-semibold ">
         <Link href="/">
           <span className="text-primary">FSW</span>Store
         </Link>
       </h1>
-      <Button size="icon" variant="outline">
-        <ShoppingCart />
-      </Button>
+
+      {/* Sidebar de Carrinho */}
+      <Sheet>
+        <SheetTrigger>
+          <Button size="icon" variant="outline">
+            <ShoppingCart />
+          </Button>
+        </SheetTrigger>
+        <SheetContent>
+          <Cart />
+        </SheetContent>
+      </Sheet>
     </Card>
   );
 };
